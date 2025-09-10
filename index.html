@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,30 +12,23 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f4f4f0;
-            /* Tom de terra claro */
+            background-color: #f4f4f0; /* Tom de terra claro */
         }
-
         .natura-laranja {
             color: #ff7a00;
         }
-
         .natura-verde {
             color: #005a3c;
         }
-
         .bg-natura-laranja {
             background-color: #ff7a00;
         }
-
         .bg-natura-verde {
             background-color: #005a3c;
         }
-
         .borda-natura-laranja {
             border-color: #ff7a00;
         }
-
         .item-linha-tempo::before {
             content: '';
             position: absolute;
@@ -47,60 +39,48 @@
             background-color: #e2e8f0;
             z-index: 1;
         }
-
         .item-linha-tempo:last-child::before {
             display: none;
         }
-
         .sidebar-link-ativo {
             background-color: #ffeadb;
             color: #ff7a00;
             font-weight: 600;
         }
-
         .sidebar {
             transition: transform 0.3s ease-in-out;
         }
-
         .chart-bar {
             transition: height 0.5s ease-out;
         }
-
         .chart-bar:hover {
             opacity: 0.8;
             transform: translateY(-4px);
         }
     </style>
 </head>
-
 <body class="text-gray-800">
 
     <div class="relative min-h-screen flex">
         <!-- Sidebar -->
-        <aside id="sidebar"
-            class="sidebar bg-white w-64 space-y-6 py-7 px-2 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition-transform duration-200 ease-in-out z-30 shadow-lg md:shadow-none">
+        <aside id="sidebar" class="sidebar bg-white w-64 space-y-6 py-7 px-2 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition-transform duration-200 ease-in-out z-30 shadow-lg md:shadow-none">
             <div class="flex items-center space-x-2 px-4">
-                <img src="https://placehold.co/120x40/005a3c/ffffff?text=Natura" alt="Logo Natura"
-                    class="h-10 rounded-lg">
+                <img src="https://placehold.co/120x40/005a3c/ffffff?text=Natura" alt="Logo Natura" class="h-10 rounded-lg">
             </div>
             <nav id="nav-sidebar">
-                <a href="#" data-target="pagina-metricas"
-                    class="sidebar-link flex items-center space-x-3 text-gray-600 p-3 rounded-md hover:bg-gray-100 transition-colors duration-200 sidebar-link-ativo">
+                <a href="#" data-target="pagina-metricas" class="sidebar-link flex items-center space-x-3 text-gray-600 p-3 rounded-md hover:bg-gray-100 transition-colors duration-200 sidebar-link-ativo">
                     <i data-lucide="layout-dashboard"></i>
                     <span>Dashboard</span>
                 </a>
-                <a href="#" data-target="pagina-rastreamento"
-                    class="sidebar-link flex items-center space-x-3 text-gray-600 p-3 rounded-md hover:bg-gray-100 transition-colors duration-200">
+                <a href="#" data-target="pagina-rastreamento" class="sidebar-link flex items-center space-x-3 text-gray-600 p-3 rounded-md hover:bg-gray-100 transition-colors duration-200">
                     <i data-lucide="map-pin"></i>
                     <span>Rastreamento</span>
                 </a>
-                <a href="#" data-target="pagina-requisicao"
-                    class="sidebar-link flex items-center space-x-3 text-gray-600 p-3 rounded-md hover:bg-gray-100 transition-colors duration-200">
+                <a href="#" data-target="pagina-requisicao" class="sidebar-link flex items-center space-x-3 text-gray-600 p-3 rounded-md hover:bg-gray-100 transition-colors duration-200">
                     <i data-lucide="send"></i>
                     <span>Requisição</span>
                 </a>
-                <a href="#" data-target="pagina-pedidos-recentes"
-                    class="sidebar-link flex items-center space-x-3 text-gray-600 p-3 rounded-md hover:bg-gray-100 transition-colors duration-200">
+                <a href="#" data-target="pagina-pedidos-recentes" class="sidebar-link flex items-center space-x-3 text-gray-600 p-3 rounded-md hover:bg-gray-100 transition-colors duration-200">
                     <i data-lucide="history"></i>
                     <span>Pedidos Recentes</span>
                 </a>
@@ -108,22 +88,19 @@
         </aside>
 
         <!-- Overlay para mobile -->
-        <div id="sidebar-overlay"
-            class="fixed inset-0 bg-black opacity-0 md:hidden z-20 transition-opacity duration-300 pointer-events-none">
-        </div>
+        <div id="sidebar-overlay" class="fixed inset-0 bg-black opacity-0 md:hidden z-20 transition-opacity duration-300 pointer-events-none"></div>
 
 
         <!-- Conteúdo Principal -->
         <div class="flex-1 flex flex-col h-screen overflow-y-hidden">
-            <!-- Cabeçalho -->
+             <!-- Cabeçalho -->
             <header class="bg-white shadow-sm sticky top-0 z-10">
                 <div class="container mx-auto px-6 py-4 flex justify-between items-center">
                     <div class="flex items-center">
                         <button id="botao-menu" class="md:hidden mr-4 text-gray-600">
                             <i data-lucide="menu" class="h-6 w-6"></i>
                         </button>
-                        <h1 class="hidden sm:block text-xl md:text-2xl font-bold text-gray-700">Gestão da Cadeia de
-                            Suprimentos</h1>
+                        <h1 class="hidden sm:block text-xl md:text-2xl font-bold text-gray-700">Gestão da Cadeia de Suprimentos</h1>
                     </div>
                     <div class="flex items-center space-x-2">
                         <i data-lucide="user-circle" class="h-6 w-6 text-gray-600"></i>
@@ -163,7 +140,7 @@
                             <!-- Card 3 -->
                             <div class="bg-white p-6 rounded-lg shadow-md flex items-center space-x-4">
                                 <div class="bg-blue-100 p-3 rounded-full">
-                                    <i data-lucide="truck" class="h-8 w-8 text-blue-600"></i>
+                                   <i data-lucide="truck" class="h-8 w-8 text-blue-600"></i>
                                 </div>
                                 <div>
                                     <p class="text-gray-500 text-sm">Eficiência da Entrega</p>
@@ -172,8 +149,8 @@
                             </div>
                             <!-- Card 4 -->
                             <div class="bg-white p-6 rounded-lg shadow-md flex items-center space-x-4">
-                                <div class="bg-emerald-100 p-3 rounded-full">
-                                    <i data-lucide="leaf" class="h-8 w-8 text-emerald-700"></i>
+                                 <div class="bg-emerald-100 p-3 rounded-full">
+                                   <i data-lucide="leaf" class="h-8 w-8 text-emerald-700"></i>
                                 </div>
                                 <div>
                                     <p class="text-gray-500 text-sm">Índice de Sustentabilidade</p>
@@ -187,59 +164,23 @@
                             <!-- Gráfico de Pedidos -->
                             <div class="lg:col-span-2 bg-white p-6 rounded-lg shadow-md">
                                 <h3 class="font-semibold mb-4 text-gray-700">Pedidos nos Últimos 7 Dias</h3>
-                                <div id="chart-container"
-                                    class="flex justify-between h-64 border-l border-b border-gray-200 p-4">
+                                <div id="chart-container" class="flex justify-between h-64 border-l border-b border-gray-200 p-4">
                                     <!-- As barras do gráfico serão inseridas aqui dinamicamente -->
                                 </div>
                             </div>
                             <!-- Alerta de Baixo Estoque -->
                             <div class="bg-white p-6 rounded-lg shadow-md">
                                 <h3 class="font-semibold mb-4 text-gray-700">Alerta de Baixo Estoque</h3>
-                                <div class="space-y-4">
-                                    <div class="flex items-center">
-                                        <div class="w-2/3">
-                                            <p class="text-sm font-medium">Deo Parfum Essencial Oud</p>
-                                            <p class="text-xs text-gray-500">Restam: 48 un.</p>
-                                        </div>
-                                        <div class="w-1/3 bg-gray-200 rounded-full h-2.5">
-                                            <div class="bg-red-500 h-2.5 rounded-full" style="width: 15%"></div>
-                                        </div>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <div class="w-2/3">
-                                            <p class="text-sm font-medium">Sabonete Líquido Ucuuba</p>
-                                            <p class="text-xs text-gray-500">Restam: 82 un.</p>
-                                        </div>
-                                        <div class="w-1/3 bg-gray-200 rounded-full h-2.5">
-                                            <div class="bg-yellow-500 h-2.5 rounded-full" style="width: 25%"></div>
-                                        </div>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <div class="w-2/3">
-                                            <p class="text-sm font-medium">Perfume Kaiak Aventura</p>
-                                            <p class="text-xs text-gray-500">Restam: 110 un.</p>
-                                        </div>
-                                        <div class="w-1/3 bg-gray-200 rounded-full h-2.5">
-                                            <div class="bg-yellow-500 h-2.5 rounded-full" style="width: 35%"></div>
-                                        </div>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <div class="w-2/3">
-                                            <p class="text-sm font-medium">Óleo Corporal Andiroba</p>
-                                            <p class="text-xs text-gray-500">Restam: 250 un.</p>
-                                        </div>
-                                        <div class="w-1/3 bg-gray-200 rounded-full h-2.5">
-                                            <div class="bg-green-500 h-2.5 rounded-full" style="width: 60%"></div>
-                                        </div>
-                                    </div>
+                                <div id="listaAlertaEstoque" class="space-y-4">
+                                    <!-- Os alertas de estoque serão inseridos aqui dinamicamente -->
                                 </div>
                             </div>
                         </div>
 
                         <!-- Status dos Centros de Distribuição -->
                         <div class="mt-8 bg-white p-6 rounded-lg shadow-md">
-                            <h3 class="font-semibold mb-4 text-gray-700">Status dos Centros de Distribuição</h3>
-                            <div class="overflow-x-auto">
+                             <h3 class="font-semibold mb-4 text-gray-700">Status dos Centros de Distribuição</h3>
+                             <div class="overflow-x-auto">
                                 <table class="w-full text-left text-sm">
                                     <thead>
                                         <tr class="border-b">
@@ -251,79 +192,56 @@
                                     <tbody>
                                         <tr class="border-b hover:bg-gray-50">
                                             <td class="p-2">São Paulo, SP</td>
-                                            <td class="p-2 flex items-center"><span
-                                                    class="h-2.5 w-2.5 bg-green-500 rounded-full mr-2"></span>
-                                                Operacional</td>
+                                            <td class="p-2 flex items-center"><span class="h-2.5 w-2.5 bg-green-500 rounded-full mr-2"></span> Operacional</td>
                                             <td class="p-2">
-                                                <div class="w-full bg-gray-200 rounded-full h-2.5">
-                                                    <div class="bg-natura-verde h-2.5 rounded-full" style="width: 88%">
-                                                    </div>
-                                                </div>
+                                                <div class="w-full bg-gray-200 rounded-full h-2.5"><div class="bg-natura-verde h-2.5 rounded-full" style="width: 88%"></div></div>
                                             </td>
                                         </tr>
-                                        <tr class="border-b hover:bg-gray-50">
+                                         <tr class="border-b hover:bg-gray-50">
                                             <td class="p-2">Benevides, PA</td>
-                                            <td class="p-2 flex items-center"><span
-                                                    class="h-2.5 w-2.5 bg-green-500 rounded-full mr-2"></span>
-                                                Operacional</td>
+                                            <td class="p-2 flex items-center"><span class="h-2.5 w-2.5 bg-green-500 rounded-full mr-2"></span> Operacional</td>
                                             <td class="p-2">
-                                                <div class="w-full bg-gray-200 rounded-full h-2.5">
-                                                    <div class="bg-natura-verde h-2.5 rounded-full" style="width: 75%">
-                                                    </div>
-                                                </div>
+                                                <div class="w-full bg-gray-200 rounded-full h-2.5"><div class="bg-natura-verde h-2.5 rounded-full" style="width: 75%"></div></div>
                                             </td>
                                         </tr>
-                                        <tr class="border-b hover:bg-gray-50">
+                                         <tr class="border-b hover:bg-gray-50">
                                             <td class="p-2">Jaboatão, PE</td>
-                                            <td class="p-2 flex items-center"><span
-                                                    class="h-2.5 w-2.5 bg-yellow-400 rounded-full mr-2"></span> Atenção
-                                            </td>
+                                            <td class="p-2 flex items-center"><span class="h-2.5 w-2.5 bg-yellow-400 rounded-full mr-2"></span> Atenção</td>
                                             <td class="p-2">
-                                                <div class="w-full bg-gray-200 rounded-full h-2.5">
-                                                    <div class="bg-natura-laranja h-2.5 rounded-full"
-                                                        style="width: 95%"></div>
-                                                </div>
+                                                <div class="w-full bg-gray-200 rounded-full h-2.5"><div class="bg-natura-laranja h-2.5 rounded-full" style="width: 95%"></div></div>
                                             </td>
                                         </tr>
                                         <tr class="hover:bg-gray-50">
                                             <td class="p-2">Uberlândia, MG</td>
-                                            <td class="p-2 flex items-center"><span
-                                                    class="h-2.5 w-2.5 bg-green-500 rounded-full mr-2"></span>
-                                                Operacional</td>
+                                            <td class="p-2 flex items-center"><span class="h-2.5 w-2.5 bg-green-500 rounded-full mr-2"></span> Operacional</td>
                                             <td class="p-2">
-                                                <div class="w-full bg-gray-200 rounded-full h-2.5">
-                                                    <div class="bg-natura-verde h-2.5 rounded-full" style="width: 60%">
-                                                    </div>
-                                                </div>
+                                                <div class="w-full bg-gray-200 rounded-full h-2.5"><div class="bg-natura-verde h-2.5 rounded-full" style="width: 60%"></div></div>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
-                            </div>
+                             </div>
                         </div>
                     </section>
                 </div>
-
+                
                 <!-- Página: Rastreamento -->
                 <div id="pagina-rastreamento" class="pagina-conteudo hidden">
                     <section id="rastreamento" class="mb-8">
                         <div class="bg-white p-8 rounded-lg shadow-md">
                             <h2 class="text-xl font-semibold mb-4 natura-verde">Rastreamento de Produto</h2>
                             <div class="flex flex-col sm:flex-row gap-4 mb-6">
-                                <input type="text" id="inputCodigoRastreamento"
-                                    placeholder="Insira o código do lote ou pedido (ex: NT2025BR001)"
-                                    class="flex-grow p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-natura-laranja">
-                                <button id="botaoRastrear"
-                                    class="bg-natura-laranja text-white font-bold py-3 px-6 rounded-md hover:opacity-90 transition-opacity flex items-center justify-center space-x-2">
+                                <input type="text" id="inputCodigoRastreamento" placeholder="Insira o código do lote ou pedido (ex: NT2025BR001)" class="flex-grow p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-natura-laranja">
+                                <button id="botaoRastrear" class="bg-natura-laranja text-white font-bold py-3 px-6 rounded-md hover:opacity-90 transition-opacity flex items-center justify-center space-x-2">
                                     <i data-lucide="search" class="h-5 w-5"></i>
                                     <span>Rastrear Produto</span>
                                 </button>
                             </div>
                             <div id="resultadoRastreamento" class="mt-6">
-                                <div class="text-center text-gray-500 py-8">
-                                    <i data-lucide="info" class="mx-auto h-12 w-12 text-gray-400 mb-2"></i>
-                                    <p>Aguardando a inserção de um código para rastreamento.</p>
-                                </div>
+                               <div class="text-center text-gray-500 py-8">
+                                   <i data-lucide="info" class="mx-auto h-12 w-12 text-gray-400 mb-2"></i>
+                                   <p>Aguardando a inserção de um código para rastreamento.</p>
+                               </div>
                             </div>
                         </div>
                     </section>
@@ -336,19 +254,14 @@
                             <h2 class="text-xl font-semibold mb-4 natura-verde">Requisição de Novos Pedidos</h2>
                             <form id="formRequisicao" class="space-y-4">
                                 <div>
-                                    <label for="selectProduto"
-                                        class="block text-sm font-medium text-gray-700 mb-1">Produto</label>
-                                    <select id="selectProduto"
-                                        class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-natura-laranja"></select>
+                                     <label for="selectProduto" class="block text-sm font-medium text-gray-700 mb-1">Produto</label>
+                                     <select id="selectProduto" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-natura-laranja"></select>
                                 </div>
                                 <div>
-                                    <label for="inputQuantidade"
-                                        class="block text-sm font-medium text-gray-700 mb-1">Quantidade</label>
-                                    <input type="number" id="inputQuantidade" min="1" placeholder="Ex: 50"
-                                        class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-natura-laranja">
+                                     <label for="inputQuantidade" class="block text-sm font-medium text-gray-700 mb-1">Quantidade</label>
+                                     <input type="number" id="inputQuantidade" min="1" placeholder="Ex: 50" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-natura-laranja">
                                 </div>
-                                <button type="submit" id="botaoRequisitar"
-                                    class="w-full bg-natura-verde text-white font-bold py-3 px-6 rounded-md hover:opacity-90 transition-opacity flex items-center justify-center space-x-2">
+                                <button type="submit" id="botaoRequisitar" class="w-full bg-natura-verde text-white font-bold py-3 px-6 rounded-md hover:opacity-90 transition-opacity flex items-center justify-center space-x-2">
                                     <i data-lucide="send" class="h-5 w-5"></i>
                                     <span>Solicitar Pedido</span>
                                 </button>
@@ -374,28 +287,22 @@
     </div>
 
     <!-- Modal de Login -->
-    <div id="modalLogin"
-        class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 transition-opacity duration-300">
+    <div id="modalLogin" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 transition-opacity duration-300">
         <div class="bg-white p-8 rounded-lg shadow-xl w-full max-w-sm transform transition-all duration-300 scale-95">
-            <img src="https://placehold.co/150x50/005a3c/ffffff?text=Natura" alt="Logo Natura no Modal"
-                class="mx-auto h-12 mb-4 rounded-lg">
+            <img src="https://placehold.co/150x50/005a3c/ffffff?text=Natura" alt="Logo Natura no Modal" class="mx-auto h-12 mb-4 rounded-lg">
             <h2 class="text-xl font-bold mb-2 text-center natura-verde">Controle de Acesso SCM</h2>
             <p class="text-center text-gray-500 text-sm mb-6">Por favor, insira as suas credenciais.</p>
             <div class="space-y-4">
                 <div>
-                    <label for="inputNome" class="block text-sm font-medium text-gray-700 mb-1">Nome de
-                        Utilizador</label>
-                    <input type="text" id="inputNome" placeholder="Digite seu nome de utilizador"
-                        class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-natura-laranja">
+                    <label for="inputNome" class="block text-sm font-medium text-gray-700 mb-1">Nome de Utilizador</label>
+                    <input type="text" id="inputNome" placeholder="Digite seu nome de utilizador" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-natura-laranja">
                 </div>
-                <div>
+                 <div>
                     <label for="inputSenha" class="block text-sm font-medium text-gray-700 mb-1">Senha</label>
-                    <input type="password" id="inputSenha" placeholder="Digite sua senha"
-                        class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-natura-laranja">
+                    <input type="password" id="inputSenha" placeholder="Digite sua senha" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-natura-laranja">
                 </div>
                 <div id="mensagemErroLogin" class="text-red-600 text-sm text-center h-5"></div>
-                <button id="botaoEntrar"
-                    class="w-full bg-natura-laranja text-white font-bold py-3 px-6 rounded-md hover:opacity-90 transition-opacity">
+                <button id="botaoEntrar" class="w-full bg-natura-laranja text-white font-bold py-3 px-6 rounded-md hover:opacity-90 transition-opacity">
                     Entrar
                 </button>
             </div>
@@ -431,12 +338,12 @@
                     e.preventDefault();
 
                     const targetId = link.dataset.target;
-
+                    
                     // Esconde todas as páginas
                     paginas.forEach(pagina => {
                         pagina.classList.add('hidden');
                     });
-
+                    
                     // Mostra a página alvo
                     document.getElementById(targetId).classList.remove('hidden');
 
@@ -463,10 +370,10 @@
             const nomeExibido = document.getElementById('nomeExibido');
             const mensagemErroLogin = document.getElementById('mensagemErroLogin');
 
-            setTimeout(() => {
+             setTimeout(() => {
                 modalLogin.classList.remove('opacity-0');
                 modalContent.classList.remove('scale-95');
-            }, 100);
+             }, 100);
 
             botaoEntrar.addEventListener('click', () => {
                 const nome = inputNome.value.trim();
@@ -475,20 +382,20 @@
                 if (nome && senha) {
                     mensagemErroLogin.textContent = '';
                     nomeExibido.textContent = `Olá, ${nome}`;
-
+                    
                     modalLogin.classList.add('opacity-0');
                     modalContent.classList.add('scale-95');
                     setTimeout(() => {
                         modalLogin.classList.add('hidden');
                     }, 300);
 
-                    inputNome.value = '';
+                    inputNome.value = ''; 
                     inputSenha.value = '';
                 } else {
                     mensagemErroLogin.textContent = 'Por favor, preencha todos os campos.';
                 }
             });
-
+            
             // --- LÓGICA DO GRÁFICO DE BARRAS ---
             function renderizarGraficoPedidos() {
                 const chartContainer = document.getElementById('chart-container');
@@ -623,7 +530,7 @@
                         { icon: 'package-check', title: 'Entregue ao Cliente Final', status: 'Pendente', details: '', date: '', completed: false }
                     ]
                 },
-                "NT2025BR009": {
+                 "NT2025BR009": {
                     productName: "Condicionador Murumuru",
                     stages: [
                         { icon: 'leaf', title: 'Coleta da Matéria-Prima', status: 'Concluído', details: 'Comunidade do Alto Juruá, AC', date: '19/08/2025', completed: true },
@@ -647,7 +554,7 @@
 
             botaoRastrear.addEventListener('click', () => {
                 const codigoRastreamento = inputCodigoRastreamento.value.trim().toUpperCase();
-
+                
                 if (!codigoRastreamento) {
                     exibirFeedback('Por favor, insira um código de rastreamento.', 'error');
                     return;
@@ -699,7 +606,7 @@
                 dados.stages.forEach(etapa => {
                     const classeCorIcone = etapa.completed ? 'bg-natura-verde' : 'bg-gray-300';
                     const classeCorTexto = etapa.completed ? 'text-gray-800' : 'text-gray-500';
-
+                    
                     htmlLinhaDoTempo += `
                         <div class="item-linha-tempo relative flex items-start ${classeCorTexto}">
                             <div class="absolute left-0 flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-full ${classeCorIcone} text-white z-10">
@@ -713,13 +620,13 @@
                         </div>
                     `;
                 });
-
+                
                 htmlLinhaDoTempo += `</div>`;
                 resultadoRastreamento.innerHTML = htmlLinhaDoTempo;
                 lucide.createIcons();
             }
 
-            // --- LÓGICA DE REQUISIÇÃO DE PRODUTOS ---
+            // --- LÓGICA DE ESTOQUE E REQUISIÇÃO ---
             const formRequisicao = document.getElementById('formRequisicao');
             const selectProduto = document.getElementById('selectProduto');
             const inputQuantidade = document.getElementById('inputQuantidade');
@@ -727,18 +634,83 @@
             const valorPedidosAtivos = document.getElementById('valorPedidosAtivos');
             const valorNivelEstoque = document.getElementById('valorNivelEstoque');
             const listaPedidosRecentes = document.getElementById('listaPedidosRecentes');
-
+            const listaAlertaEstoque = document.getElementById('listaAlertaEstoque');
+            
             let pedidosRecentes = [];
 
             const nomesProdutos = Object.values(dadosFicticiosRastreamento).map(item => item.productName);
-            const produtosUnicos = [...new Set(nomesProdutos)];
+            const produtosUnicos = [...new Set(nomesProdutos)]; 
+            
+            // Inicializa os dados de estoque para todos os produtos
+            let stockData = produtosUnicos.map(nome => {
+                const hash = nome.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+                const maxStock = (hash % 4) * 50 + 250; 
+                const stock = Math.floor((hash % 70 + 20) / 100 * maxStock);
+                return { name: nome, stock: stock, maxStock: maxStock };
+            });
 
+            // Ajusta os dados para corresponder à exibição inicial
+            const initialDisplayItems = {
+                'Deo Parfum Essencial Oud': { stock: 48, maxStock: 320 },
+                'Sabonete Líquido Ucuuba': { stock: 82, maxStock: 320 },
+                'Perfume Kaiak Aventura': { stock: 110, maxStock: 320 },
+                'Óleo Corporal Andiroba': { stock: 250, maxStock: 400 }
+            };
+
+            stockData = stockData.map(item => {
+                return initialDisplayItems[item.name] ? { ...item, ...initialDisplayItems[item.name] } : item;
+            });
+
+            // Popula o dropdown de requisição
             produtosUnicos.forEach(nome => {
                 const option = document.createElement('option');
                 option.value = nome;
                 option.textContent = nome;
                 selectProduto.appendChild(option);
             });
+            
+            function renderizarAlertaEstoque() {
+                if (!listaAlertaEstoque) return;
+
+                const itensParaExibir = stockData
+                    .filter(item => (item.stock / item.maxStock) < 0.85) // Itens abaixo de 85%
+                    .sort((a, b) => a.stock - b.stock)
+                    .slice(0, 4); 
+
+                listaAlertaEstoque.innerHTML = ''; 
+
+                if (itensParaExibir.length === 0) {
+                    listaAlertaEstoque.innerHTML = '<p class="text-sm text-gray-500">Nenhum alerta de baixo estoque.</p>';
+                    return;
+                }
+
+                itensParaExibir.forEach(item => {
+                    const percentage = (item.stock / item.maxStock) * 100;
+                    let barColorClass = 'bg-green-500';
+                    if (percentage < 20) barColorClass = 'bg-red-500';
+                    else if (percentage < 40) barColorClass = 'bg-yellow-500';
+
+                    const itemHTML = `
+                        <div class="flex items-center">
+                            <div class="w-2/3">
+                                <p class="text-sm font-medium">${item.name}</p>
+                                <p class="text-xs text-gray-500">Restam: ${item.stock} un.</p>
+                            </div>
+                            <div class="w-1/3 bg-gray-200 rounded-full h-2.5">
+                                <div class="${barColorClass} h-2.5 rounded-full" style="width: ${percentage.toFixed(2)}%"></div>
+                            </div>
+                        </div>
+                    `;
+                    listaAlertaEstoque.innerHTML += itemHTML;
+                });
+            }
+
+            function atualizarNivelEstoqueGeral() {
+                const totalStock = stockData.reduce((sum, item) => sum + item.stock, 0);
+                const totalMaxStock = stockData.reduce((sum, item) => sum + item.maxStock, 0);
+                const percentage = (totalStock / totalMaxStock) * 100;
+                valorNivelEstoque.textContent = `${percentage.toFixed(1)}%`;
+            }
 
             function gerarCodigoRastreamento() {
                 let novoCodigo;
@@ -777,10 +749,13 @@
                     `;
                 });
 
-                tabelaHTML += `</tbody></table>`;
+                tabelaHTML += `
+                        </tbody>
+                    </table>
+                `;
                 listaPedidosRecentes.innerHTML = tabelaHTML;
             }
-
+            
             formRequisicao.addEventListener('submit', (evento) => {
                 evento.preventDefault();
 
@@ -791,6 +766,14 @@
                     feedbackRequisicao.innerHTML = `<span class="text-red-600">Por favor, insira uma quantidade válida.</span>`;
                     setTimeout(() => { feedbackRequisicao.innerHTML = ''; }, 4000);
                     return;
+                }
+                
+                // Atualiza o estoque
+                const produtoNoEstoque = stockData.find(p => p.name === produtoSelecionado);
+                if (produtoNoEstoque) {
+                    produtoNoEstoque.stock += parseInt(quantidade);
+                    renderizarAlertaEstoque();
+                    atualizarNivelEstoqueGeral();
                 }
 
                 const novoCodigo = gerarCodigoRastreamento();
@@ -810,20 +793,21 @@
 
                 feedbackRequisicao.innerHTML = `<span class="text-green-600 flex items-center justify-center"><i data-lucide="check-circle" class="h-5 w-5 mr-2"></i>Pedido solicitado! Rastreie com: <strong class="font-mono ml-2 p-1 bg-gray-200 rounded">${novoCodigo}</strong></span>`;
                 lucide.createIcons();
-
+                
                 let totalPedidos = parseInt(valorPedidosAtivos.textContent.replace(/\./g, ''), 10);
                 valorPedidosAtivos.textContent = (totalPedidos + 1).toLocaleString('pt-BR');
-
-                let nivelEstoque = parseFloat(valorNivelEstoque.textContent);
-                nivelEstoque -= 0.1;
-                valorNivelEstoque.textContent = `${nivelEstoque.toFixed(1)}%`;
-
+                
                 formRequisicao.reset();
 
                 setTimeout(() => { feedbackRequisicao.innerHTML = ''; }, 8000);
             });
+
+            // Chamadas iniciais para renderizar o estado
+            renderizarAlertaEstoque();
+            atualizarNivelEstoqueGeral();
         });
     </script>
 </body>
-
 </html>
+
+
